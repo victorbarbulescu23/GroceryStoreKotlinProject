@@ -1,10 +1,11 @@
+//Candy child class, inherits Product and takes in information about what kind of candy is being purchased
 class Candy (shelfLife: Int,
             isHardCandy: Boolean,
             isGummyCandy: Boolean,
             isIceCream: Boolean,
             name: String,
             aisle: Int,
-            nutritionFacts: nutritionFacts):
+            nutritionFacts: NutritionFacts):
             Product(name,aisle,nutritionFacts){
 
     var shelfLife: Int = shelfLife
@@ -28,6 +29,7 @@ class Candy (shelfLife: Int,
             field = value
         }
 
+    //overrides the getSummary function in Product to output data specifically about Candy
     override fun getSummary() {
         if (isHardCandy){
             println( "Name: $name \n" +

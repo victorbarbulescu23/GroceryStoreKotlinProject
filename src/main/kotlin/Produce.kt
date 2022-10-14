@@ -1,15 +1,13 @@
-import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.*
 
+//Produce child class, inherits Product
 class Produce (expirationDate: String,
                name: String,
                aisle: Int,
-               nutritionFacts: nutritionFacts):
+               nutritionFacts: NutritionFacts):
                 Product(name,aisle,nutritionFacts){
 
-    val year: Int = Calendar.getInstance().get(Calendar.YEAR)
-    val formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")
+    private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")
 
     var expirationDate = expirationDate
         get() = field
@@ -17,6 +15,7 @@ class Produce (expirationDate: String,
             field = value
         }
 
+    //Overrides the Product getSummary function to specifically output data about produce
     override fun getSummary() {
         println("Name: $name \n" +
                 "Aisle: $aisle \n" +

@@ -1,8 +1,9 @@
+//Beverages child class inherits Product. Takes in information about what kind of beverage the item is.
 class Beverages (isSoda: Boolean,
                 isAlcoholic: Boolean,
                 name: String,
                 aisle: Int,
-                nutritionFacts: nutritionFacts):
+                nutritionFacts: NutritionFacts):
                 Product(name,aisle,nutritionFacts){
 
     var isSoda = isSoda
@@ -17,6 +18,7 @@ class Beverages (isSoda: Boolean,
             field = value
         }
 
+    //Overrides the getSummary function in Product to output a summary specific to beverages
     override fun getSummary() {
         if (isAlcoholic){
             println( "Name: $name \n" +

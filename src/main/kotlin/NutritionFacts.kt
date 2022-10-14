@@ -1,31 +1,10 @@
-class nutritionFacts (isProduce: Boolean,
-                   isCandy: Boolean,
-                   isBeverage: Boolean,
-                   hasGluten: Boolean) {
+//Exists only to store nutritional information about each product type
+class NutritionFacts (isProduce: Boolean,
+                      isCandy: Boolean,
+                      isBeverage: Boolean,
+                      hasGluten: Boolean) {
 
-    /*
-    private var sugar: Int = 0
-        get() = field
-        set(value) {
-            field = value
-        }
-    private var salt: Int = 0
-        get() = field
-        set(value) {
-            field = value
-        }
-    private var satFats: Int = 0
-        get() = field
-        set(value) {
-            field = value
-        }
-    private var transFats: Int = 0
-        get() = field
-        set(value) {
-            field = value
-        }
-
-    */
+    //parameters are passed in the main function (see Main.kt line 36), then passed into the Product object
     private var hasGluten: Boolean = false
     private var isProduce = false
     private var isCandy = false
@@ -37,6 +16,7 @@ class nutritionFacts (isProduce: Boolean,
         this.isBeverage = isBeverage
     }
 
+    //NutritionSummary returns a summary of the nutrition facts based on what kind of product it is
     fun nutritionSummary(): String {
         if (isProduce){
             if (hasGluten){

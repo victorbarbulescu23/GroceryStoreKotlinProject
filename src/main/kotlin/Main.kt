@@ -1,18 +1,19 @@
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 
+//Main class reads in user data about the products they're buying and adds them to a shopping cart arrayList
 fun main() {
+    //Shopping Cart ArrayList
     var shoppingCart = arrayListOf<Product>()
-    val formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")
 
     println("Welcome to Super Duper Mart! Please follow the instructions in order to fill your shopping cart! ")
     println("This application is specially designed for you to enter the information, so you know exactly what it is you're buying!")
+
+    //Do-while that loops until the user says they're done entering products
     do{
         var cartFull: Boolean = false
 
         println("To add produce to your cart, press 1. To add candy to your cart, press 2. To add Beverages to your cart, press 3: ")
-        if (readLine()!!.toInt() == 1){
+        if (readLine()!!.toInt() == 1){ //add produce to cart
 
             print("Please enter the products name: ")
             val name: String = readLine()!!
@@ -32,10 +33,10 @@ fun main() {
                 hasGluten = true
             }
 
-            val nutritionFacts = nutritionFacts(true,false,false, hasGluten)
+            val nutritionFacts = NutritionFacts(true,false,false, hasGluten)
             val item = Produce(expirationDate,name,aisle,nutritionFacts)
             shoppingCart.add(item)
-        } else if (readLine()!!.toInt() == 2){
+        } else if (readLine()!!.toInt() == 2){ //add candy to cart
             print("Please enter the products name: ")
             val name: String = readLine()!!
             println()
@@ -67,10 +68,10 @@ fun main() {
                 hasGluten = true
             }
 
-            val nutritionFacts = nutritionFacts(false,true,false, hasGluten)
+            val nutritionFacts = NutritionFacts(false,true,false, hasGluten)
             val item = Candy(shelfLife,hardCandy,gummyCandy,iceCream,name,aisle,nutritionFacts)
             shoppingCart.add(item)
-        } else if (readLine()!!.toInt() == 3){
+        } else if (readLine()!!.toInt() == 3){ //add beverages to cart
             print("Please enter the products name: ")
             val name: String = readLine()!!
             println()
@@ -95,10 +96,10 @@ fun main() {
                 hasGluten = true
             }
 
-            val nutritionFacts = nutritionFacts(false,false,true, hasGluten)
+            val nutritionFacts = NutritionFacts(false,false,true, hasGluten)
             val item = Beverages(soda,alcoholic,name,aisle,nutritionFacts)
             shoppingCart.add(item)
-        } else {
+        } else { //failsafe in case the user doesn't enter 1, 2, or 3
             println("Sorry, you didn't enter 1, 2, or 3. Please try again.")
         }
 

@@ -1,6 +1,7 @@
+//Abstract parent class that contains information about a products name, aisle, and nutrition.
 abstract class Product (name: String,
                         aisle: Int,
-                        nutritionFacts: nutritionFacts){
+                        nutritionFacts: NutritionFacts){
 
     var name: String = ""
         get() = field
@@ -12,7 +13,7 @@ abstract class Product (name: String,
         set(value) {
             field = value
         }
-    var nutritionFacts: nutritionFacts
+    var nutritionFacts: NutritionFacts
 
     init {
         this.name = name
@@ -20,5 +21,6 @@ abstract class Product (name: String,
         this.nutritionFacts = nutritionFacts
     }
 
+    //Abstract fun getSummary() is overriden in child classes to output a summary specific to every product
     abstract fun getSummary()
 }
